@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        max-width: 320px;
+        align-items: center;
+        padding: 40px 0px;
+      }
+      .find-btn {
+        padding: 8px 16px;
+      }
+      .img {
+        width: 120px;
+        height: 120px;
+        object-position: center;
+        object-fit: contain;
+      }
+      .rabbit {
+        box-sizing: border-box;
+        width: 420px;
+        height: 600px;
+        border: 1px solid gold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="find-btn">Find a 경빈!!! 🐰</button>
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img rabbit" src="./img/토끼.jpg" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+      <img class="img" src="./img/carrot.png" alt="" />
+    </div>
+    <script>
+      const findBtn = document.querySelector(".find-btn");
+      const rabbit = document.querySelector(".rabbit");
+
+      // 내 방식
+      // findBtn.addEventListener("click", () => {
+      //   const rabbitPosition = rabbit.getBoundingClientRect().top;
+      //   const rabbitSize = rabbit.getBoundingClientRect().height;
+      //   const scrollPosition =
+      //     rabbitPosition - window.innerHeight / 2 + rabbitSize / 2;
+
+      //   window.scroll({ top: scrollPosition, behavior: "smooth" });
+      // });
+
+      // 엘리 방식
+      findBtn.addEventListener("click", () => {
+        rabbit.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    </script>
+  </body>
+</html>

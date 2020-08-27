@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window coordinates</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+      }
+      .rect {
+        box-sizing: border-box;
+        height: 100px;
+        width: 100px;
+        background-color: aliceblue;
+        border: 1px solid black;
+      }
+      .rect10 {
+        background-color: lightsalmon;
+      }
+      .btnList {
+        position: fixed;
+        top: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="rect rect0">0</div>
+      <div class="rect rect1">100px</div>
+      <div class="rect rect2">2</div>
+      <div class="rect rect3">3</div>
+      <div class="rect rect4">4</div>
+      <div class="rect rect5">5</div>
+      <div class="rect rect6"></div>
+      <div class="rect rect7"></div>
+      <div class="rect rect8"></div>
+      <div class="rect rect9"></div>
+      <div class="rect rect10"></div>
+      <div class="rect rect11"></div>
+      <div class="rect rect12"></div>
+      <div class="rect rect13"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+      <div class="rect rect14"></div>
+    </div>
+    <aside class="btnList">
+      <button class="scroll-by">Scroll by 100px(y)</button>
+      <button class="scroll-by-negative">Scroll by -100px(y)</button>
+      <button class="scroll-to">Scroll to 100px(y)</button>
+      <button class="scroll-into">Scroll to rect10</button>
+    </aside>
+  </body>
+  <script>
+    const scrollBy = document.querySelector(".scroll-by");
+    const scrollByNegative = document.querySelector(".scroll-by-negative");
+    const scrollTo = document.querySelector(".scroll-to");
+    const scrollInto = document.querySelector(".scroll-into");
+    const rect10 = document.querySelector(".rect10");
+
+    scrollBy.addEventListener("click", () => {
+      // window.scrollBy(0, 100);
+      window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+    });
+    scrollByNegative.addEventListener("click", () => {
+      // window.scrollBy(0, -100);
+      window.scrollBy({ top: -100, left: 0, behavior: "smooth" });
+    });
+    scrollTo.addEventListener("click", () => {
+      // window.scroll(0, 100);
+      window.scroll({ top: 100, left: 0, behavior: "smooth" });
+    });
+    scrollInto.addEventListener("click", () => {
+      // window.scroll(0, rect10.offsetTop);
+      window.scroll({ top: rect10.offsetTop, left: 0, behavior: "smooth" });
+    });
+
+    for (let i = 0; i < 15; i++) {
+      const rectElement = document.querySelector(`.rect${i}`);
+      rectElement.addEventListener("click", (event) => {
+        const rect = rectElement.getBoundingClientRect();
+        console.log(rect);
+        console.log(`client: ${event.clientX} ${event.clientY}`);
+        console.log(`page: ${event.pageX} ${event.pageY}`);
+      });
+    }
+  </script>
+</html>

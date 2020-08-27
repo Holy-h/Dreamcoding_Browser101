@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WindowSize</title>
+    <style>
+      body {
+        height: 200vh;
+        padding: 16px;
+      }
+
+      .sizeWrapper {
+        background-color: powderblue;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sizeWrapper">
+      <div>
+        <span>window.screen: </span>
+        <span class="screen"></span>
+      </div>
+      <div>
+        <span>window.outer:</span>
+        <span class="outer"></span>
+      </div>
+      <div>
+        <span>window.inner:</span>
+        <span class="inner"></span>
+      </div>
+      <div>
+        <span>documentElement.clientWidth:</span>
+        <span class="client"></span>
+      </div>
+    </div>
+  </body>
+  <script>
+    const screenSpan = document.querySelector(".screen");
+    const outerSpan = document.querySelector(".outer");
+    const innerSpan = document.querySelector(".inner");
+    const clientSpan = document.querySelector(".client");
+    let windowScreen = [window.screen.width, window.screen.height];
+    let windowOuter = [window.outerWidth, window.outerHeight];
+    let windowInner = [window.innerWidth, window.innerHeight];
+    let clientWidth = [
+      document.documentElement.clientWidth,
+      document.documentElement.clientHeight,
+    ];
+
+    init();
+
+    function init() {
+      updateDisplay();
+      window.addEventListener("resize", () => {
+        calculateSize();
+        updateDisplay();
+      });
+    }
+
+    function calculateSize() {
+      windowScreen = [window.screen.width, window.screen.height];
+      windowOuter = [window.outerWidth, window.outerHeight];
+      windowInner = [window.innerWidth, window.innerHeight];
+      clientWidth = [
+        document.documentElement.clientWidth,
+        document.documentElement.clientHeight,
+      ];
+    }
+    function updateDisplay() {
+      screenSpan.innerHTML = windowScreen;
+      outerSpan.innerHTML = windowOuter;
+      innerSpan.innerHTML = windowInner;
+      clientSpan.innerHTML = clientWidth;
+    }
+  </script>
+</html>
