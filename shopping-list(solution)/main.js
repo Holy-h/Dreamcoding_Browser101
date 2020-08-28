@@ -4,6 +4,14 @@ const addBtn = document.querySelector(".footer__button");
 const headerItemLength = document.querySelector(".header__items-length");
 const allDeleteBtn = document.querySelector(".footer__btn-all-delete");
 
+window.addEventListener("load", () => {
+  loadItemsFromBrowser();
+});
+
+window.addEventListener("beforeunload", () => {
+  saveItemsInBrowser();
+});
+
 addBtn.addEventListener("click", () => {
   onAdd();
 });
@@ -96,4 +104,15 @@ function updateItemLength() {
 
 function deleteAllItems() {
   items.innerHTML = "";
+}
+
+function loadItemsFromBrowser() {
+  const loadedItems = window.localStorage.getItem("items");
+
+  items.innerHTML = loadedItems ? loadedItems : "";
+  updateItemLength();
+}
+
+function saveItemsInBrowser() {
+  window.localStorage.setItem("items", items.innerHTML);
 }
