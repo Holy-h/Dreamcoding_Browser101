@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-size: inherit;
+}
+
+body {
+  background-color: #ced3df;
+  margin: 0;
+}
+
+.list {
+  width: 100%;
+  max-width: 400px;
+  height: 80vh;
+  min-height: 640px;
+  margin: 40px auto;
+  text-align: center;
+  background-color: #f1f0f7;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 18px 26px 17px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 18px 26px 17px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 18px 26px 17px 5px rgba(0, 0, 0, 0.75);
+}
+
+.header {
+  padding: 8px;
+  font-size: 1.5rem;
+  background: rgb(215, 127, 224);
+  flex: 0 0 auto;
+  background: linear-gradient(
+    90deg,
+    rgba(215, 127, 224, 1) 0%,
+    rgba(240, 168, 231, 1) 36%,
+    rgba(247, 255, 129, 1) 100%
+  );
+  color: #ffffff;
+  position: relative;
+}
+
+.header__items-length {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0px;
+  bottom: 0px;
+  right: 16px;
+  text-align: right;
+  color: #333333;
+  font-size: 1rem;
+}
+
+.items {
+  flex: auto;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.item__context {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.item__name {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.item__created {
+  font-size: 0.75rem;
+}
+
+.item__divider {
+  width: 90%;
+  height: 2px;
+  margin: auto;
+  background-color: #e1e1e1;
+}
+
+.item__delete {
+  flex: 0 0 auto;
+  transition: all 0.2s ease-out;
+  color: #333333;
+}
+
+.item__delete:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+.footer {
+  flex: 0 0 auto;
+  background: rgb(215, 127, 224);
+  background: linear-gradient(
+    90deg,
+    rgba(215, 127, 224, 1) 0%,
+    rgba(240, 168, 231, 1) 36%,
+    rgba(247, 255, 129, 1) 100%
+  );
+  position: relative;
+}
+
+.footer__input {
+  width: 100%;
+  padding: 16px;
+}
+
+.footer__btn-wrapper {
+  position: relative;
+}
+
+.footer__button {
+  padding: 14px 16px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  margin: 16px;
+  transition: all 0.3s ease-out;
+}
+
+.footer__button:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.footer__btn-all-delete {
+  position: absolute;
+  top: 0px;
+  right: 16px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: red;
+}
