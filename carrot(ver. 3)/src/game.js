@@ -64,7 +64,7 @@ class Game {
     });
 
     // GameRecord
-    this.gameRecord = document.querySelector(".game__record");
+    this.userRecordList = document.querySelector(".user-record-list");
     this.startTime = 0;
     this.endTime = 0;
   }
@@ -178,13 +178,35 @@ class Game {
   updateRecord = () => {
     const userScore = this.getPlayTime(this.startTime, this.endTime);
     const userName = prompt("이름을 입력하세요", "AAA");
+    const userRecords = this.userRecordList.querySelectorAll(".user-record");
 
-    const userRecord = document.createElement("li");
-    userRecord.setAttribute("class", "user-record");
-    userRecord.innerHTML = `
-      <span class="user__name">이름: ${userName ? userName : "undefined"}</span>
-      <span class="user__score">시간: ${userScore}초</span>
+    const newRecord = document.createElement("li");
+    newRecord.setAttribute("class", "user-record");
+    newRecord.innerHTML = `
+      <span class="user__name" data-name="${userName}">이름: ${
+      userName ? userName : "undefined"
+    }</span>
+      <span class="user__score" data-time=${userScore}>시간: ${userScore}초</span>
     `;
-    this.gameRecord.querySelector(".user-record-list").append(userRecord);
+
+    console.log(userRecords.length);
+
+    // 첫 게임
+    if (userRecords.length === 0) {
+      this.userRecordList.append(newRecord);
+      return;
+    }
+
+    // 두 번째 게임부터
+    // 명예의 손가락에 있는 기록들을 순환합니다.
+    for (let beforeRecord of userRecords) {
+      const scoreEl = beforeRecord.querySelector(".user__score");
+      // datasetTime과 이번 기록을 비교
+      if (scoreEl.dataset.time > userScore) {
+        this.userRecordList.insertBefore(newRecord, beforeRecord);
+      } else {
+        this.userRecordList.append(newRecord);
+      }
+    }
   };
 }
